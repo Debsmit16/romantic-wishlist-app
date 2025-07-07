@@ -351,51 +351,140 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .home-page {
+    padding: var(--spacing-md) var(--spacing-sm);
+    padding-bottom: calc(var(--spacing-xl) + 80px);
+  }
+
+  .home-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .welcome-title {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .welcome-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+    line-height: 1.5;
     padding: var(--spacing-md);
   }
-  
-  .welcome-title {
-    font-size: 2.5rem;
+
+  .home-navigation {
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
   }
-  
-  .welcome-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .quote-text {
-    font-size: 1.2rem;
-  }
-  
+
   .nav-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: 1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.1rem;
+    min-height: 50px;
+    border-radius: var(--border-radius);
   }
-  
+
   .countdown-display {
     gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  
+
+  .countdown-item {
+    min-width: 60px;
+    padding: var(--spacing-sm);
+  }
+
+  .countdown-number {
+    font-size: 1.6rem;
+  }
+
+  .countdown-label {
+    font-size: 0.9rem;
+  }
+
+  .quick-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .stat-card {
+    width: 100%;
+    max-width: 280px;
+    padding: var(--spacing-md);
+  }
+
+  .secret-message {
+    white-space: normal;
+    max-width: 300px;
+    font-size: 1rem;
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: var(--spacing-sm);
+    padding-bottom: calc(var(--spacing-xl) + 70px);
+  }
+
+  .welcome-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+    padding: var(--spacing-sm);
+  }
+
+  .home-navigation {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-button {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    justify-content: center;
+  }
+
   .countdown-item {
     min-width: 50px;
     padding: var(--spacing-xs);
   }
-  
+
   .countdown-number {
     font-size: 1.4rem;
   }
-  
-  .quick-stats {
-    flex-direction: column;
-    align-items: center;
+
+  .countdown-label {
+    font-size: 0.8rem;
   }
-  
+
   .stat-card {
-    width: 100%;
-    max-width: 200px;
+    max-width: 100%;
+    padding: var(--spacing-sm);
   }
-  
-  .secret-message {
-    white-space: normal;
-    max-width: 250px;
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
   }
 }

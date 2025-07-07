@@ -189,32 +189,115 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .add-wish-form-container {
-    margin: 0 var(--spacing-md);
+    margin: 0 var(--spacing-sm);
     padding: var(--spacing-lg);
+  }
+
+  .form-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
   }
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    min-height: 44px;
+    border-radius: var(--border-radius-small);
+  }
+
+  .form-textarea {
+    min-height: 100px;
   }
 
   .priority-options {
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
+    grid-template-columns: 1fr 1fr;
   }
 
   .priority-option {
-    padding: var(--spacing-xs);
+    padding: var(--spacing-md);
+    min-height: 80px;
+    border-radius: var(--border-radius);
   }
 
   .priority-emoji {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
   }
 
   .priority-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .priority-description {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    margin-top: var(--spacing-xs);
+  }
+
+  .image-upload-label {
+    height: 180px;
+    border-radius: var(--border-radius);
+  }
+
+  .upload-icon {
+    font-size: 2rem;
+  }
+
+  .upload-text {
+    font-size: 1rem;
+    margin-top: var(--spacing-sm);
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .form-actions .btn {
+    min-width: auto;
+    min-height: 50px;
+    font-size: 1.1rem;
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .add-wish-form-container {
+    margin: 0 var(--spacing-xs);
+    padding: var(--spacing-md);
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .priority-options {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-option {
+    padding: var(--spacing-sm);
+    min-height: 70px;
+  }
+
+  .priority-emoji {
+    font-size: 1.3rem;
   }
 
   .image-upload-label {
@@ -223,14 +306,6 @@
 
   .upload-icon {
     font-size: 1.5rem;
-  }
-
-  .form-actions {
-    flex-direction: column;
-  }
-
-  .form-actions .btn {
-    min-width: auto;
   }
 }
 
