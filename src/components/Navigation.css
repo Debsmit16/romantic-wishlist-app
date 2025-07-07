@@ -111,24 +111,31 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .main-navigation {
+    position: fixed;
     bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    transform: none;
-    width: calc(100% - 2rem);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100vw - 2rem);
+    max-width: 500px;
+    z-index: 1000;
   }
 
   .nav-container {
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: var(--spacing-sm);
     border-radius: 25px;
+    width: 100%;
+    display: flex;
   }
 
   .nav-item {
-    min-width: 55px;
+    flex: 1;
+    min-width: 0;
     padding: var(--spacing-sm) var(--spacing-xs);
     min-height: 60px;
     justify-content: center;
+    max-width: 80px;
   }
 
   .nav-icon {
@@ -140,26 +147,36 @@
     font-size: 0.65rem;
     font-weight: 500;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
 @media (max-width: 480px) {
   .main-navigation {
+    position: fixed;
     bottom: 0.75rem;
-    left: 0.75rem;
-    right: 0.75rem;
-    width: calc(100% - 1.5rem);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100vw - 1.5rem);
+    max-width: 400px;
   }
 
   .nav-container {
     padding: var(--spacing-xs);
     border-radius: 20px;
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   .nav-item {
-    min-width: 48px;
+    flex: 1;
+    min-width: 0;
     min-height: 48px;
     padding: var(--spacing-xs);
+    max-width: 65px;
   }
 
   .nav-icon {
@@ -170,6 +187,9 @@
   .nav-label {
     font-size: 0.6rem;
     margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -183,8 +203,49 @@
   }
 }
 
+@keyframes navFloatMobile {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+}
+
 .main-navigation {
   animation: navFloat 4s ease-in-out infinite;
+}
+
+/* Disable floating animation on mobile for better stability */
+@media (max-width: 768px) {
+  .main-navigation {
+    animation: none;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .main-navigation {
+    width: calc(100vw - 1rem);
+    bottom: 0.5rem;
+  }
+
+  .nav-container {
+    padding: 6px;
+  }
+
+  .nav-item {
+    max-width: 50px;
+    padding: 6px 2px;
+  }
+
+  .nav-icon {
+    font-size: 1.1rem;
+  }
+
+  .nav-label {
+    font-size: 0.55rem;
+  }
 }
 
 /* Glow effect on hover */
