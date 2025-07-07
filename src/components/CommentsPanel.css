@@ -1,0 +1,291 @@
+/* Comments Panel Styles */
+
+.comments-panel {
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--glow-shadow);
+  border: 2px solid var(--blush-pink);
+  animation: slideUp 0.3s ease-out;
+}
+
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--spacing-lg);
+  border-bottom: 2px solid var(--blush-pink);
+  background: var(--lavender-blush);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.wish-info h3 {
+  font-size: 1.5rem;
+  color: var(--deep-charcoal);
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-heading);
+}
+
+.wish-info p {
+  color: var(--deep-charcoal);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--deep-charcoal);
+  padding: var(--spacing-xs);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: var(--light-coral);
+  transform: rotate(90deg);
+}
+
+.comments-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Comments List */
+.comments-list {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.comment-bubble {
+  background: var(--blush-pink);
+  border-radius: 20px 20px 5px 20px;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  max-width: 80%;
+  margin-left: auto;
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.comment-bubble:nth-child(even) {
+  background: var(--soft-lavender);
+  border-radius: 20px 20px 20px 5px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.comment-text {
+  color: var(--deep-charcoal);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xs);
+}
+
+.comment-timestamp {
+  font-size: 0.8rem;
+  color: var(--deep-charcoal);
+  opacity: 0.6;
+  text-align: right;
+}
+
+.comment-bubble:nth-child(even) .comment-timestamp {
+  text-align: left;
+}
+
+/* No Comments State */
+.no-comments {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--deep-charcoal);
+  opacity: 0.6;
+}
+
+.no-comments-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+.no-comments p {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Comment Form */
+.comment-form {
+  padding: var(--spacing-lg);
+  border-top: 2px solid var(--blush-pink);
+  background: var(--lavender-blush);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.comment-input-container {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-end;
+}
+
+.comment-input {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--blush-pink);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-body);
+  background: var(--clean-white);
+  resize: vertical;
+  min-height: 60px;
+  transition: all 0.3s ease;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: var(--soft-lavender);
+  box-shadow: 0 0 0 3px rgba(229, 195, 255, 0.2);
+}
+
+.comment-input::placeholder {
+  color: var(--deep-charcoal);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.send-btn {
+  background: var(--blush-pink);
+  border: 2px solid var(--blush-pink);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: var(--soft-lavender);
+  border-color: var(--soft-lavender);
+  transform: scale(1.1);
+  box-shadow: var(--glow-shadow);
+}
+
+.send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Custom Scrollbar for Comments */
+.comments-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+  background: var(--lavender-blush);
+  border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+  background: var(--blush-pink);
+  border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb:hover {
+  background: var(--soft-lavender);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .comments-panel {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .comments-header {
+    padding: var(--spacing-md);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: stretch;
+  }
+
+  .close-btn {
+    align-self: flex-end;
+  }
+
+  .wish-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .comments-list {
+    padding: var(--spacing-md);
+    max-height: 300px;
+  }
+
+  .comment-bubble {
+    max-width: 90%;
+    padding: var(--spacing-sm);
+  }
+
+  .comment-form {
+    padding: var(--spacing-md);
+  }
+
+  .comment-input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .send-btn {
+    align-self: center;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* Animation for new comments */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment-bubble.new {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+/* Heart animation for send button */
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.send-btn:active {
+  animation: heartPulse 0.3s ease-in-out;
+}

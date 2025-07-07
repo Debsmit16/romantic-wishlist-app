@@ -1,0 +1,192 @@
+/* Navigation Styles */
+
+.main-navigation {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: slideUp 0.8s ease-out;
+}
+
+.nav-container {
+  background: var(--clean-white);
+  border-radius: 50px;
+  padding: var(--spacing-sm);
+  box-shadow: var(--hover-shadow);
+  border: 2px solid var(--blush-pink);
+  display: flex;
+  gap: var(--spacing-xs);
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-sm);
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--deep-charcoal);
+  transition: all 0.3s ease;
+  min-width: 60px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--blush-pink);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  border-radius: 25px;
+  z-index: -1;
+}
+
+.nav-item:hover::before,
+.nav-item.active::before {
+  transform: translateY(0);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--deep-charcoal);
+  transform: translateY(-3px);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+  animation: heartbeat 1s ease-in-out infinite;
+  transform: scale(1.1);
+}
+
+.nav-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--deep-charcoal);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:hover .nav-label,
+.nav-item.active .nav-label {
+  color: var(--deep-charcoal);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+/* Special effects for specific nav items */
+.nav-item[href="/secret-planner"] {
+  background: linear-gradient(135deg, rgba(42, 26, 46, 0.1), rgba(22, 33, 62, 0.1));
+}
+
+.nav-item[href="/secret-planner"]:hover::before,
+.nav-item[href="/secret-planner"].active::before {
+  background: linear-gradient(135deg, #2a1a2e, #16213e);
+}
+
+.nav-item[href="/secret-planner"]:hover,
+.nav-item[href="/secret-planner"].active {
+  color: var(--clean-white);
+}
+
+.nav-item[href="/open-when"] .nav-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-navigation {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+  }
+
+  .nav-container {
+    justify-content: space-around;
+    padding: var(--spacing-xs);
+  }
+
+  .nav-item {
+    min-width: 50px;
+    padding: var(--spacing-xs);
+  }
+
+  .nav-icon {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+  }
+
+  .nav-label {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-label {
+    display: none;
+  }
+
+  .nav-item {
+    min-width: 45px;
+  }
+
+  .nav-icon {
+    margin-bottom: 0;
+  }
+}
+
+/* Floating animation for the entire nav */
+@keyframes navFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.main-navigation {
+  animation: navFloat 4s ease-in-out infinite;
+}
+
+/* Glow effect on hover */
+.nav-container:hover {
+  box-shadow: 
+    var(--hover-shadow),
+    0 0 30px rgba(255, 209, 220, 0.3);
+}
+
+/* Active indicator */
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--soft-lavender);
+  border-radius: 50%;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Special secret planner styling */
+.nav-item[href*="secret-planner"].active::after {
+  background: #e94560;
+}

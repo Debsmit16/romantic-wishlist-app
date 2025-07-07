@@ -1,0 +1,231 @@
+/* Wishlist Page Styles */
+
+.wishlist-page {
+  min-height: 100vh;
+  padding: var(--spacing-lg) 0;
+  padding-bottom: calc(var(--spacing-lg) + 100px); /* Space for navigation */
+  background: var(--romantic-gradient);
+}
+
+.wishlist-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  background: var(--clean-white);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+  border: 2px solid var(--blush-pink);
+}
+
+.filters {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--deep-charcoal);
+}
+
+.filter-select {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 2px solid var(--blush-pink);
+  border-radius: var(--border-radius-small);
+  background: var(--clean-white);
+  color: var(--deep-charcoal);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--soft-lavender);
+  box-shadow: 0 0 0 3px rgba(229, 195, 255, 0.2);
+}
+
+.add-wish-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+/* Wishlist Grid */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+  border: 2px solid var(--blush-pink);
+  margin: var(--spacing-xl) 0;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+.empty-state h3 {
+  color: var(--deep-charcoal);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  color: var(--deep-charcoal);
+  opacity: 0.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Wishlist Stats */
+.wishlist-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--clean-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+  border: 2px solid var(--soft-lavender);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--deep-charcoal);
+  font-family: var(--font-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--deep-charcoal);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Confetti Animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confetti 3s linear infinite;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wishlist-controls {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: stretch;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .filter-group {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .filter-select {
+    min-width: 150px;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .wishlist-stats {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .stat-item {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--spacing-sm);
+    background: var(--lavender-blush);
+    border-radius: var(--border-radius-small);
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .wishlist-page {
+    padding: var(--spacing-md) 0;
+  }
+
+  .filters {
+    gap: var(--spacing-xs);
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-select {
+    min-width: auto;
+    width: 100%;
+  }
+}

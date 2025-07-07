@@ -1,0 +1,326 @@
+/* Wish Card Styles */
+
+.wish-card {
+  background: var(--card-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+  padding: var(--spacing-md);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 209, 220, 0.2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.wish-card:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-4px);
+  border-color: var(--blush-pink);
+}
+
+.wish-card.editing {
+  cursor: default;
+  border-color: var(--soft-lavender);
+  background: var(--lavender-blush);
+}
+
+/* Priority Badge */
+.priority-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  font-size: 1.2rem;
+  z-index: 2;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Wish Image */
+.wish-image {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  background: var(--lavender-blush);
+}
+
+.wish-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.wish-card:hover .wish-image img {
+  transform: scale(1.05);
+}
+
+/* Wish Content */
+.wish-content {
+  margin-bottom: var(--spacing-md);
+}
+
+.wish-title {
+  font-size: 1.3rem;
+  font-family: var(--font-heading);
+  color: var(--deep-charcoal);
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.3;
+}
+
+.wish-description {
+  color: var(--deep-charcoal);
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wish-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--deep-charcoal);
+  opacity: 0.6;
+}
+
+.wish-category {
+  background: var(--blush-pink);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.wish-date {
+  font-size: 0.8rem;
+}
+
+/* Status Section */
+.wish-status {
+  margin-bottom: var(--spacing-sm);
+}
+
+.status-select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--blush-pink);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--soft-lavender);
+  box-shadow: 0 0 0 3px rgba(229, 195, 255, 0.2);
+}
+
+/* Comments Indicator */
+.comments-indicator {
+  position: absolute;
+  bottom: var(--spacing-sm);
+  left: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: var(--soft-lavender);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--deep-charcoal);
+}
+
+.comment-icon {
+  font-size: 1rem;
+}
+
+.comment-count {
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.wish-actions {
+  position: absolute;
+  bottom: var(--spacing-sm);
+  right: var(--spacing-sm);
+  display: flex;
+  gap: var(--spacing-xs);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wish-card:hover .wish-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  background: var(--clean-white);
+  border: 2px solid var(--blush-pink);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.action-btn:hover {
+  background: var(--blush-pink);
+  transform: scale(1.1);
+}
+
+.edit-btn:hover {
+  background: var(--soft-lavender);
+  border-color: var(--soft-lavender);
+}
+
+.delete-btn:hover {
+  background: #ffcccb;
+  border-color: #ff9999;
+}
+
+/* Edit Form */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.edit-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--soft-lavender);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-body);
+  background: var(--clean-white);
+  transition: all 0.3s ease;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: var(--blush-pink);
+  box-shadow: 0 0 0 3px rgba(255, 209, 220, 0.2);
+}
+
+.title-input {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.description-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.edit-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.edit-select {
+  flex: 1;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--soft-lavender);
+  border-radius: var(--border-radius-small);
+  background: var(--clean-white);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.edit-select:focus {
+  outline: none;
+  border-color: var(--blush-pink);
+  box-shadow: 0 0 0 3px rgba(255, 209, 220, 0.2);
+}
+
+.edit-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: flex-end;
+}
+
+.btn-sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wish-card {
+    padding: var(--spacing-sm);
+  }
+
+  .wish-title {
+    font-size: 1.2rem;
+  }
+
+  .wish-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .wish-actions {
+    opacity: 1;
+    position: static;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+  }
+
+  .comments-indicator {
+    position: static;
+    align-self: flex-start;
+    margin-top: var(--spacing-sm);
+  }
+
+  .edit-controls {
+    flex-direction: column;
+  }
+
+  .edit-actions {
+    justify-content: stretch;
+  }
+
+  .edit-actions .btn {
+    flex: 1;
+  }
+}
+
+/* Animation for new cards */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.wish-card.new {
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+/* Completed wish styling */
+.wish-card.completed {
+  opacity: 0.8;
+  background: linear-gradient(145deg, #f0fff0 0%, #e6ffe6 100%);
+}
+
+.wish-card.completed .wish-title {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
